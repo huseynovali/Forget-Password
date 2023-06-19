@@ -30,6 +30,8 @@ function Chat() {
   }, [users]);
 
 
+
+
   const handleMessage = (message) => {
     console.log(message);
     setMessages((prevMessages) => {
@@ -47,7 +49,7 @@ function Chat() {
       id: uuidv4(),
       text: input,
       sender: JSON.parse(localStorage.getItem('user')),
-     
+
     };
     socket.emit('sendMessage', message);
     setInput('');

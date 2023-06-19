@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
 
     socket.on('sendMessage', (message) => {
         console.log('Gelen mesaj:', message);
-        io.to("IvjdHl2fSfo5R8MpAAAf").emit('sendMessage', message);
+        io.emit('sendMessage', message);
     });
 
     socket.on('disconnect', () => {
