@@ -15,7 +15,7 @@ function Chat() {
   useEffect(() => {
 
     socket.on('sendMessage', handleMessage);
-
+  
     return () => {
       socket.off('sendMessage', handleMessage);
     };

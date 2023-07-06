@@ -29,10 +29,11 @@ const Login = () => {
 
         try {
             const response = await instance.post("/auth", values);
-            localStorage.setItem("user", JSON.stringify(response.data.name));
-            localStorage.setItem("userId", JSON.stringify(response.data._id));
+            localStorage.setItem("user", JSON.stringify(response.data.user.name));
+            localStorage.setItem("userId", JSON.stringify(response.data.user._id));
+            localStorage.setItem("token", JSON.stringify(response.data.token));
+            setTimeout(() => { navigate("/"); }, 1000)
             resetForm();
-            navigate("/");
         } catch (error) {
             setErr(error);
         }
@@ -72,6 +73,7 @@ const Login = () => {
                             <div className="button__group w-full flex justify-center items-end flex-col">
                                 <button type="submit" className="py-3 px-5 my-4 rounded-lg text-white z-10 bg-orange-400">Submit</button>
                                 <Link to="/register" className="mt-5 z-20"><button className="py-2  px-3 rounded-lg text-white ">Sign Up</button></Link>
+                                <Link to="/forgetpassword" className="mt-5 z-20"><button className="py-2  px-3 rounded-lg text-white ">forget password</button></Link>
                             </div>
                         </Form>
                     </Formik>

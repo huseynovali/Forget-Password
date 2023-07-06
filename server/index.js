@@ -39,5 +39,5 @@ const PORT = 5000;
 
 
 httpServer.listen(PORT, () => {
-    console.log(`Sunucu ${PORT} numaralı portta çalışıyor`);
+    console.log(`Object Sunucu ${PORT} numaralı portta çalışıyor`);
 });
